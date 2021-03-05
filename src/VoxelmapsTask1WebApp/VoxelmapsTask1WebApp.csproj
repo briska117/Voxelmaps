@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\covid-service-response.ts" />
-    <None Remove="ClientApp\src\app\models\map-marker.ts" />
     <None Remove="ClientApp\src\app\services\CountryConst.ts" />
   </ItemGroup>
 
@@ -35,7 +34,6 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\covid-service-response.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\models\map-marker.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\CountryConst.ts" />
   </ItemGroup>
 

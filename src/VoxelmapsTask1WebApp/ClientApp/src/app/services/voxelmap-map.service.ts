@@ -20,8 +20,8 @@ export class VoxelmapMapService {
           if (countryLatLong !== undefined) {
             const marker = L.marker([countryLatLong.latitude, countryLatLong.longitude]).addTo(map);
             marker.bindPopup(`<p>${c.Country}, ${c.CountryCode}</p><br/>
-          <p>Total Confirmed: ${c.TotalConfirmed}</p><br/>
-          <p>Total Deaths: ${c.TotalDeaths}</p><br/>
+          <p>Total Case Confirmed: ${c.TotalConfirmed}</p><br/>
+          <p>Total Deaths for COVID-19: ${c.TotalDeaths}</p><br/>
           <p>Total Recovered: ${c.TotalRecovered}</p><br/>
           `).openPopup();
             
