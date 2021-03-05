@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   private initMap() {
-    this.map = L.map('map').setView([18.979026, 321.783834], 15);
+    this.map = L.map('map').setView([18.979026, 321.783834], 5);
     const tiles = L.tileLayer(environment.leafetTiles, {
-      maxZoom: 2,
+      maxZoom: 15,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
     tiles.addTo(this.map);
