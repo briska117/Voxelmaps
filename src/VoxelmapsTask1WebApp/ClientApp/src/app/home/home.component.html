@@ -1,0 +1,76 @@
+
+  <div class="row">
+    <br />
+    <br />
+    <div class="col-md-6" style="margin-top:5%">
+      <div class="card">
+        <script src="D:\Voxelmaps\Voxelmaps.WebUIDeveloperTestTask1\src\VoxelmapsTask1WebApp\ClientApp\src\app\services\voxelmap-map.service.spec.js"></script>
+        <h4 class="card-header">Hello!</h4>
+        <div class="card-body">
+          <h5 class="card-title">Welcome to Brian's exam</h5>
+          <p class="card-text">This application is to report general statistics of the covid 19.</p>
+          
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-12">
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+
+    <div class="map-container  col-md-6">
+      <div class="map-frame">
+        <div #map id="map" class="map">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <table class="table table-responsive-md table-bordered table-light" style="margin-bottom:12%">
+        <thead class="table-dark">
+          <tr>
+            <th colspan="2">
+              Global Covid Stadistics
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New Case Confirmed</td>
+            <td>{{global.NewConfirmed}}</td>
+          </tr>
+          <tr>
+            <td>New Deaths Confirmed</td>
+            <td>{{global.NewDeaths}}</td>
+          </tr>
+          <tr>
+            <td>New Case of Recovered Confirmed</td>
+            <td>{{global.NewRecovered}}</td>
+          </tr>
+          <tr>
+            <td>Total Case Confirmed</td>
+            <td>{{global.TotalConfirmed}}</td>
+          </tr>
+          <tr>
+            <td>Total Deaths Confirmed</td>
+            <td>{{global.TotalDeaths}}</td>
+          </tr>
+          <tr>
+            <td>Total Case of Recovered Confirmed</td>
+            <td>{{global.TotalRecovered}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br /><br />
+    </div>
+
+  </div>

@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+@import "~leaflet/dist/leaflet.css";
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.map-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 10%;
+  margin-left:50%;
+  width:50%;
+}
+
+.map-opacity {
+  opacity: 0;
+}
+
+body, html {
+  /* The image used */
+  background-image: url('assets\img\covid-19-1190x574-2-full.jpg');
+
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+
+.map {
+  height: 100%;
+}
+
+
+
