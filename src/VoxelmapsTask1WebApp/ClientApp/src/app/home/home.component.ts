@@ -2,7 +2,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { VoxelmapMapService } from '../services/voxelmap-map.service';
 import { environment } from '../../environments/environment';
 import * as L from 'leaflet';
-import { Global, CovidServiceResponse, Country } from '../models/covid-service-response';
+import { Global, CovidServiceResponse, Country, CovidResponse, Feature } from '../models/covid-service-response';
+
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
     this.GetPanelInfo();
+   
     
   }
 
@@ -35,15 +37,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   GetPanelInfo() {
-    this.mapService.GetCovidInfo().subscribe((r: CovidServiceResponse) => {
-      this.global = r.Global;
-      this.addMarkers(r.Countries);
-      console.log(this.global);
+    this.mapService.GetCovidInfonew().subscribe((r: CovidResponse) => {
+
+      console.log(r.features);
+
+      this.addMarkers(r.features);
 
     });
   }
 
-  private addMarkers(countries: Array<Country>): void {
+  private addMarkers(countries: Array<Feature>): void {
 
     this.mapService.addMarkers(this.map, countries);
 

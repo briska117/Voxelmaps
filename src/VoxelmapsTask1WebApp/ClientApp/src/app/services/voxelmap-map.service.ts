@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { VoxelmapRequestService } from './voxelmap-request.service';
-import { CovidServiceResponse, Country } from '../models/covid-service-response';
+import { CovidServiceResponse, Country, Feature } from '../models/covid-service-response';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import { environment } from '../../environments/environment';
@@ -11,21 +11,28 @@ import { CountryInfo } from './CountryConst';
   providedIn: 'root'
 })
 export class VoxelmapMapService {
-  constructor(private request: VoxelmapRequestService) { }
 
-  public addMarkers(map: L.map, countries: Array<Country>){
-    const countriesLatLong = this.GetAllCountries();
-        countries.map((c: Country) => {
-          const countryLatLong = countriesLatLong.find(con => con.country == c.CountryCode);
-          if (countryLatLong !== undefined) {
-            const marker = L.marker([countryLatLong.latitude, countryLatLong.longitude]).addTo(map);
-            marker.bindPopup(`<p>${c.Country}, ${c.CountryCode}</p><br/>
-          <p>Total Case Confirmed: ${c.TotalConfirmed}</p><br/>
-          <p>Total Deaths for COVID-19: ${c.TotalDeaths}</p><br/>
-          <p>Total Recovered: ${c.TotalRecovered}</p><br/>
+  public url: string = "";
+  constructor(private request: VoxelmapRequestService, @Inject('BASE_URL') baseUrl: string) {
+    this.url = baseUrl;
+  }
+
+  public addMarkers(map: L.map, countries: Array<Feature>){
+    countries.map((c: Feature) => {
+
+      if (c.attributes.lat != undefined) {
+
+        const marker = L.marker([c.attributes.lat, c.attributes.long]).addTo(map);
+        marker.bindPopup(`<p>${c.attributes.countryRegion}, ${c.attributes.isO3}</p><br/>
+          <p>Total Case Confirmed: ${c.attributes.confirmed}</p><br/>
+          <p>Total Deaths for COVID-19: ${c.attributes.deaths}</p><br/>
+          <p>Total Recovered: ${c.attributes.recovered}</p><br/>
           `).openPopup();
+      } else {
+        console.log(c.attributes);
+      }
             
-          }  
+          
         
       })
     
@@ -38,6 +45,10 @@ export class VoxelmapMapService {
 
   GetCovidInfo(): Observable<any> {
     return this.request.getServer(environment.covidAPI);
+  }
+
+  GetCovidInfonew(): Observable<any> {
+    return this.request.getServer(this.url + 'weatherforecast/Covid');
   }
 
 

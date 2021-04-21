@@ -34,3 +34,49 @@ export class Country {
 
 export class Premium { }
 
+export class UniqueIdField {
+  name: string;
+  isSystemMaintained: boolean;
+}
+
+export class SpatialReference {
+  wkid: number;
+  latestWkid: number;
+}
+
+export class Field {
+  name: string;
+  type: string;
+  alias: string;
+  sqlType: string;
+  length: number;
+  domain?: any;
+  defaultValue?: any;
+}
+
+export class Attributes {
+  countryRegion: string;
+  lat: string;
+  long: string;
+  confirmed: number;
+  deaths: number;
+  recovered?: number;
+  uid: number;
+  isO3: string;
+}
+
+export class Feature {
+  attributes: Attributes;
+}
+
+export class CovidResponse {
+  objectIdFieldName: string;
+  uniqueIdField: UniqueIdField;
+  globalIdFieldName: string;
+  geometryType: string;
+  spatialReference: SpatialReference;
+  fields: Field[];
+  features: Feature[];
+}
+
+
